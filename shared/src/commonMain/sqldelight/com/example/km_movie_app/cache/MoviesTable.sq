@@ -1,0 +1,21 @@
+CREATE TABLE MOVIE_TB(
+    id INTEGER NOT NULL CONSTRAINT pk PRIMARY KEY,
+    name TEXT NOT NULL,
+    overview TEXT NOT NULL,
+    poster_url TEXT NOT NULL
+);
+
+
+saveMovie:
+    INSERT OR REPLACE INTO MOVIE_TB(id,name,overview,poster_url)
+    VALUES (?,?,?,?);
+
+deleteMovie:
+    DELETE FROM MOVIE_TB WHERE id = :id;
+
+deleteAllMovie:
+    DELETE FROM MOVIE_TB;
+
+selectAll:
+    SELECT * FROM MOVIE_TB;
+--     SELECT * FROM MOVIE_TB ORDER BY id DESC ;
